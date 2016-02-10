@@ -1,0 +1,10 @@
+<form {{action "addTodo" on="submit"}} >
+    {{input value=description }}
+</form>
+
+
+<ul>
+    {{#each todos as |todo|}}
+      <li {{action "deleteTodo" todo}}>{{todo.description}}</li>
+    {{/each}}
+</ul>
