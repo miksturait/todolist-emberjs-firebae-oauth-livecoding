@@ -1,8 +1,8 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('todo', 'Unit | Model | todo', {
+moduleForModel('user', 'Unit | Model | user', {
   // Specify the other units that are required for this test.
-  needs: ['model:creator']
+  needs: ['model:todo']
 });
 
 test('it exists', function(assert) {
