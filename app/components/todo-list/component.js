@@ -6,17 +6,25 @@ export default Ember.Component.extend({
 
   actions: {
     addTodo() {
-      let description = this.get('description'),
-        store = this.get('store'),
-        user = this.get('session.currentUser');
+      if (this.get('session.isAuthenticated')) {
+        let description = this.get('description'),
+          store = this.get('store'),
+          user = this.get('session.currentUser');
 
-      store.createRecord('todo', {description: description, creator: user, done: false}).save();
+        store.createRecord('todo', {description: description, creator: user, done: false}).save();
 
-      this.set('description', '');
+        this.set('description', '');
+      } else {
+        alert('please sign in first');
+      }
     },
     deleteTodo(todo) {
-      todo.deleteRecord();
-      todo.save();
+      if (this.get('session.authenticated')) {
+        todo.deleteRecord();
+        todo.save();
+      } else {
+        alert('please sign in first');
+      }
     }
   }
 });
