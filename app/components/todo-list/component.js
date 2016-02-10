@@ -19,7 +19,7 @@ export default Ember.Component.extend({
       }
     },
     deleteTodo(todo) {
-      if (this.get('session.authenticated')) {
+      if (this.get('session.isAuthenticated')) {
         todo.deleteRecord();
         todo.save();
       } else {
