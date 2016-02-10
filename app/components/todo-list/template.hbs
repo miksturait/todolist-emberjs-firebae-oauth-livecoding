@@ -1,5 +1,5 @@
-<form {{action "addTodo" on="submit"}} >
-    {{input value=description }}
+<form class="add-todo" {{action "addTodo" on="submit"}} >
+  {{paper-input label="enter you new todo" type="text" value=description icon="add" icon-class="add" required=true hideAllMessages=true}}
 </form>
 
 
