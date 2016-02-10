@@ -3,7 +3,7 @@
       {{#if session.isAuthenticated}}
           <img class="user-profile" src={{session.currentUser.imageUrl}} />
           <span class="user-name">{{session.currentUser.name}}</span>
-          {{#paper-button raised=true warn=true action="singOut"}}Sign Out{{/paper-button}}
+          {{#paper-button raised=true warn=true action="signOut"}}Sign Out{{/paper-button}}
         {{outlet}}
       {{else}}
           {{#paper-button raised=true warn=true action="signIn"}}Sign In{{/paper-button}}

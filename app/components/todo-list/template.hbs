@@ -2,9 +2,14 @@
   {{paper-input label="enter you new todo" type="text" value=description icon="add" icon-class="add" required=true hideAllMessages=true}}
 </form>
 
+{{#paper-subheader class="md-no-sticky"}}your todolist{{/paper-subheader}}
 
-<ul>
-    {{#each todos as |todo|}}
-      <li {{action "deleteTodo" todo}}>{{todo.description}}</li>
-    {{/each}}
-</ul>
+{{#each todos as |todo|}}
+  {{#paper-item action="saveTodo" param=todo}}
+    {{#paper-checkbox checked=todo.done}}{{/paper-checkbox}}
+    <p>{{todo.description}}</p>
+    {{!--{{#paper-button icon-button=true param=item action="secondaryMessageClick"}}--}}
+      {{!--{{paper-icon "message"}}--}}
+    {{!--{{/paper-button}}--}}
+  {{/paper-item}}
+{{/each}}

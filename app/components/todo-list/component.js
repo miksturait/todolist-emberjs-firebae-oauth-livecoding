@@ -18,11 +18,11 @@ export default Ember.Component.extend({
         alert('please sign in first');
       }
     },
-    deleteTodo(todo) {
+    saveTodo(todo) {
       if (this.get('session.isAuthenticated')) {
-        todo.deleteRecord();
         todo.save();
       } else {
+        todo.rollbackAttributes();
         alert('please sign in first');
       }
     }
