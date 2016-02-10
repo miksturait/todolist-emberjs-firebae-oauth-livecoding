@@ -1,3 +1,9 @@
-<h2 id="title">Welcome to Ember</h2>
+{{#if session.isAuthenticated}}
+    Logged in as {{session.currentUser.displayName}}
+    <button {{action "signOut"}}>Sign out</button>
+    {{outlet}}
+{{else}}
+    <button {{action "signIn"}}>Sign in</button>
+{{/if}}
 
 {{todo-list todos=model}}
