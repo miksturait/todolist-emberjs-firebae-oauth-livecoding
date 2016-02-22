@@ -27,15 +27,14 @@ export default Ember.Component.extend({
     },
     saveTodo(todo) {
       if (this.get('session.isAuthenticated')) {
+        let user = this.get('session.currentUser');
+        todo.set('completedBy', user);
+        todo.set('completedAt', Date.now());
         todo.save();
       } else {
         todo.rollbackAttributes();
         alert('please sign in first');
       }
-
     },
-    secondaryMessageClick() {
-      this.transitionTo('')
-  }
   }
 });

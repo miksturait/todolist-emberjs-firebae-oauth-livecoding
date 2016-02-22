@@ -6,15 +6,22 @@
 
 {{#each todos as |todo|}}
   {{#paper-item action="saveTodo" param=todo}}
-      {{#paper-checkbox checked=todo.done}}{{/paper-checkbox}}
-      <p>
-        {{todo.description}}
+    {{#paper-checkbox checked=todo.done}}{{/paper-checkbox}}
+    <p>
+      {{todo.description}}
+      {{#if todo.done}}
+          <span class="todo-ago">
+            completed {{todo.sinceCompletedAt}} by
+            <img src={{todo.completedBy.imageUrl }} />
+            {{todo.completedBy.name}}
+        </span>
+      {{/if}}
         <span class="todo-ago">
             created {{todo.sinceCreatedAt}} by
-            <img src={{todo.creator.imageUrl }}/>
-            {{todo.creator.name}}
+            <img src={{todo.creator.imageUrl }} />
+          {{todo.creator.name}}
         </span>
-      </p>
+    </p>
   {{!--{{#paper-button icon-button=true param=item action="secondaryMessageClick"}}--}}
   {{!--{{paper-icon "message"}}--}}
   {{!--{{/paper-button}}--}}

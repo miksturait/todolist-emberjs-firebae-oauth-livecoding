@@ -7,8 +7,13 @@ export default DS.Model.extend({
   done: DS.attr('boolean'),
   creator: DS.belongsTo('user'),
   createdAt: DS.attr('number'),
+  completedBy: DS.belongsTo('user'),
+  completedAt: DS.attr('number'),
 
   sinceCreatedAt: Ember.computed('createdAt', function () {
     return moment(this.get('createdAt')).fromNow();
+  }),
+  sinceCompletedAt: Ember.computed('completedAt', function () {
+    return moment(this.get('completedAt')).fromNow();
   })
 });
