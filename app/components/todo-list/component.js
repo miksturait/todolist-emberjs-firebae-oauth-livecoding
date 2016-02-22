@@ -11,7 +11,14 @@ export default Ember.Component.extend({
           store = this.get('store'),
           user = this.get('session.currentUser');
 
-        store.createRecord('todo', {description: description, creator: user, done: false}).save();
+        store.createRecord('todo',
+          {
+            description: description,
+            creator: user,
+            done: false,
+            createdAt: Date.now()
+          })
+          .save();
 
         this.set('description', '');
       } else {
@@ -25,6 +32,10 @@ export default Ember.Component.extend({
         todo.rollbackAttributes();
         alert('please sign in first');
       }
-    }
+
+    },
+    secondaryMessageClick() {
+      this.transitionTo('')
+  }
   }
 });

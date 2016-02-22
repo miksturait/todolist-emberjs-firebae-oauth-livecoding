@@ -17,3 +17,15 @@ div.loader {
   margin: auto;
   padding-top: 8em;
 }
+
+span.todo-ago {
+  display: block;
+  margin: 0;
+  font-size: 0.6em;
+  line-height: 0.8em;
+  img {
+    height: 1.0em;
+    padding-right: 0.1em;
+    padding-left: 0.1em;
+  }
+}

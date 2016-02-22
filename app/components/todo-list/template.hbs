@@ -2,14 +2,21 @@
   {{paper-input label="enter you new todo" type="text" value=description icon="add" icon-class="add" required=true hideAllMessages=true}}
 </form>
 
-{{#paper-subheader class="md-no-sticky"}}your todolist{{/paper-subheader}}
+{{#paper-subheader class="md-no-sticky"}}your todos{{/paper-subheader}}
 
 {{#each todos as |todo|}}
   {{#paper-item action="saveTodo" param=todo}}
-    {{#paper-checkbox checked=todo.done}}{{/paper-checkbox}}
-    <p>{{todo.description}}</p>
-    {{!--{{#paper-button icon-button=true param=item action="secondaryMessageClick"}}--}}
-      {{!--{{paper-icon "message"}}--}}
-    {{!--{{/paper-button}}--}}
+      {{#paper-checkbox checked=todo.done}}{{/paper-checkbox}}
+      <p>
+        {{todo.description}}
+        <span class="todo-ago">
+            created {{todo.sinceCreatedAt}} by
+            <img src={{todo.creator.imageUrl }}/>
+            {{todo.creator.name}}
+        </span>
+      </p>
+  {{!--{{#paper-button icon-button=true param=item action="secondaryMessageClick"}}--}}
+  {{!--{{paper-icon "message"}}--}}
+  {{!--{{/paper-button}}--}}
   {{/paper-item}}
 {{/each}}

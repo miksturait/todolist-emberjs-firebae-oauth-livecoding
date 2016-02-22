@@ -2,18 +2,21 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.findAll('todo');
+    return Ember.RSVP.hash({
+      users: this.store.findAll('user'),
+      todos: this.store.findAll('todo')
+    });
   },
 
-  beforeModel: function() {
-    return this.get("session").fetch().catch(function() {});
+  beforeModel: function () {
+    return this.get("session").fetch().catch(function () {} );
   },
 
   actions: {
-    signIn: function(provider = "google") {
-      this.get("session").open("firebase", { provider: provider });
+    signIn: function (provider = "google") {
+      this.get("session").open("firebase", {provider: provider});
     },
-    signOut: function() {
+    signOut: function () {
       this.get("session").close();
     }
   }
