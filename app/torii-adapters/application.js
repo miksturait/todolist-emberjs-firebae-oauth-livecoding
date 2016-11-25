@@ -13,7 +13,7 @@ export default ToriiFirebaseAdapter.extend({
     });
   },
 
-  _findOrCreateUser(uid, {displayName: name, profileImageURL: imageUrl}) {
+  _findOrCreateUser(uid, {displayName: name, photoURL: imageUrl}) {
     let store = this.get('store');
 
     return store.findRecord('user', uid)
