@@ -9,7 +9,7 @@ export default ToriiFirebaseAdapter.extend({
     return Ember.RSVP.hash({
       provider: authentication.provider,
       uid: authentication.uid,
-      currentUser: this._findOrCreateUser(authentication.uid, authentication[authentication.provider])
+      currentUser: this._findOrCreateUser(authentication.uid, authentication)
     });
   },
 
