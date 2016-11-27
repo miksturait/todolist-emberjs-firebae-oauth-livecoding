@@ -43,7 +43,7 @@
     "emberfire": "2.0.4",
     "loader.js": "^4.0.0",
     "moment": "2.16.0",
-    "moment-timezone": "0.5.9",
+    "moment-timezone": "0.5.10",
     "torii": "0.8.1"
   }
 }
